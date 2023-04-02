@@ -1,32 +1,32 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	exercises "forExer/funcs"
 )
 
 func main() {
 
-	a := 4
-	b := 6
+	var a, b int
+	var err error
 
-	if err := For39(a, b); err != nil {
+	fmt.Println("Введите число А:")
+	_, err = fmt.Scan(&a)
+	if err != nil {
+		fmt.Println("Scan error: ", err)
 		return
 	}
-}
 
-func For39(a int, b int) error {
-
-	if a > b {
-		return errors.New("а должен быть меньше b")
+	fmt.Println("Введите число B:")
+	_, err = fmt.Scan(&b)
+	if err != nil {
+		fmt.Println("Scan error: ", err)
+		return
 	}
 
-	for i := a; i <= b; i++ {
-		fmt.Println("i = ", i)
-		for j := 0; j < i; j++ {
-			fmt.Println(i)
-		}
+	err = exercises.For39(a, b)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return
 	}
-
-	return nil
 }

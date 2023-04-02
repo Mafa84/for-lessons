@@ -1,6 +1,9 @@
 package exercises
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 /*
 	 Даны целые положительные числа A и B (A < B). Вывести все целые
@@ -10,8 +13,15 @@ import "fmt"
 
 func For39(a int, b int) error {
 
-	for i := 0; i < a; i++ {
-		fmt.Println(a)
+	if a > b {
+		return errors.New("а должен быть меньше b")
+	}
+
+	for i := a; i <= b; i++ {
+		fmt.Println("i = ", i)
+		for j := 0; j < i; j++ {
+			fmt.Println(i)
+		}
 	}
 
 	return nil
